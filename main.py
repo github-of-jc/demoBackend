@@ -104,7 +104,7 @@ date_time_obj = datetime.datetime.strptime(last_message_at, "%Y-%m-%dT%H:%M:%S.%
 response = ""
 
 while True:
-	sleep(5)
+	sleep(2)
 	# thing to run
 	print("\nquerying")
 	# query in most recent order
@@ -117,7 +117,7 @@ while True:
 		date_time_obj = new_date_time_obj
 		print("new time: %s" % new_date_time_obj)
 		print(resp['messages'][-1]['html'])
-		print("send a response to the sender:")
+		responseProducer.setResponse(resp['messages'][-1]['html'], True)
 		responseText = responseProducer.getResponse()
 		respMessage = { 
 			"text": responseText, 
